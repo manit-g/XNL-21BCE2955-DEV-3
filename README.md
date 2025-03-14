@@ -163,6 +163,3 @@ Feel free to fork this repository, submit issues, and contribute with pull reque
 For any questions or inquiries, contact us at:  
 Manit Gera, 21BCE2955, manitgera@gmail.com
 
----
-
-This README should give your users and collaborators a clear overview of the project, how to get started, and what the components do. You can modify and expand this template to suit your specific use case.
