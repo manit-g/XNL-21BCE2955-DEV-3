@@ -1,0 +1,13 @@
+apiVersion: "kubeflow.org/v1beta1"
+kind: TFJob
+metadata:
+  name: scaling-predictor
+spec:
+  tfReplicaSpecs:
+    Worker:
+      replicas: 1
+      template:
+        spec:
+          containers:
+          - name: tensorflow
+            image: ml-scaling:latest 

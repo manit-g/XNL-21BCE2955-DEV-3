@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ml-scaling-service
+  namespace: ml-system
+spec:
+  selector:
+    app: ml-scaling
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer 

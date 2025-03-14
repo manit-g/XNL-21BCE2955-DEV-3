@@ -1,0 +1,20 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: snyk-security-scan
+  namespace: security
+spec:
+  schedule: "0 0 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: snyk-scan
+            image: snyk/snyk:latest
+            env:
+            - name: SNYK_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: snyk-token
+                  key: token 

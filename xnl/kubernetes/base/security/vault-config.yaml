@@ -1,0 +1,19 @@
+apiVersion: vault.banzaicloud.com/v1alpha1
+kind: Vault
+metadata:
+  name: vault
+spec:
+  size: 3
+  image: vault:1.9.2
+  bankVaultsImage: banzaicloud/bank-vaults:latest
+  
+  config:
+    storage:
+      file:
+        path: "/vault/file"
+    listener:
+      tcp:
+        address: "0.0.0.0:8200"
+        tls_disable: true
+    api_addr: http://vault:8200
+    ui: true 

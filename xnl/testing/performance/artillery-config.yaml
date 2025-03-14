@@ -1,0 +1,16 @@
+config:
+  target: "http://ml-scaling-service"
+  phases:
+    - duration: 300
+      arrivalRate: 100
+      rampTo: 1000
+  defaults:
+    headers:
+      Content-Type: "application/json"
+scenarios:
+  - name: "Load Test Scenario"
+    flow:
+      - post:
+          url: "/predict"
+          json:
+            features: [0.1, 0.2, 0.3, 0.4, 0.5] 

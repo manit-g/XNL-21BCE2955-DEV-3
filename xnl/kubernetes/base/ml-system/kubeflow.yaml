@@ -1,0 +1,11 @@
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  name: kubeflow
+spec:
+  applications:
+    - name: jupyter
+      kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: jupyter/notebook-controller 

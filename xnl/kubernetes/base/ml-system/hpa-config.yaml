@@ -1,0 +1,17 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: ml-scaling-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: ml-scaling
+  metrics:
+  - type: External
+    external:
+      metric:
+        name: ml_prediction
+        selector:
+          matchLabels:
+            type: workload_prediction 

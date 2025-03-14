@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rollback-controller
+spec:
+  template:
+    spec:
+      containers:
+      - name: controller
+        image: rollback-controller:latest 

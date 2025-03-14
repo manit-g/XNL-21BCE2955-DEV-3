@@ -1,0 +1,37 @@
+XNL-21BCE2955-DEV-3/
+├── .github/
+│   └── workflows/
+│       ├── ml-pipeline.yaml
+│       └── security-scan.yaml
+├── kubernetes/
+│   └── base/
+│       ├── ml-system/
+│       │   ├── deployment.yaml
+│       │   └── kubeflow-integration.yaml
+│       ├── blockchain/
+│       │   ├── ipfs-deployment.yaml
+│       │   └── ethereum-deployment.yaml
+│       ├── security/
+│       │   ├── zero-trust.yaml
+│       │   └── vault-config.yaml
+│       └── monitoring/
+│           ├── prometheus.yaml
+│           └── grafana.yaml
+├── ml/
+│   ├── models/
+│   ├── pipelines/
+│   │   └── scaling_pipeline.py
+│   └── training/
+│       └── train_pipeline.py
+├── blockchain/
+│   ├── contracts/
+│   │   ├── DeploymentManager.sol
+│   │   └── DeploymentValidator.sol
+│   └── scripts/
+│       ├── deploy.js
+│       └── interact.py
+└── testing/
+    ├── e2e/
+    ├── integration/
+    ├── performance/
+    └── security/ 

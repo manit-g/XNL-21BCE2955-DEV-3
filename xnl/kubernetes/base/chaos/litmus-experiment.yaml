@@ -1,0 +1,22 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: ChaosEngine
+metadata:
+  name: pod-delete-chaos
+  namespace: testing
+spec:
+  appinfo:
+    appns: 'ml-system'
+    applabel: 'app=ml-scaling'
+    appkind: 'deployment'
+  chaosServiceAccount: litmus-admin
+  monitoring: true
+  jobCleanUpPolicy: 'delete'
+  experiments:
+    - name: pod-delete
+      spec:
+        components:
+          env:
+            - name: TOTAL_CHAOS_DURATION
+              value: '30'
+            - name: CHAOS_INTERVAL
+              value: '10' 

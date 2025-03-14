@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: zap-scan
+spec:
+  schedule: "0 0 * * *"
+  jobTemplate:
+    spec:
+      containers:
+      - name: zap
+        image: owasp/zap2docker-stable
+        args: ["-t", "http://ml-scaling-service"] 

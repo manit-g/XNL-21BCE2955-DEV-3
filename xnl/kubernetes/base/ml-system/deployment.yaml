@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-scaling
+  namespace: ml-system
+  labels:
+    app: ml-scaling
+    owner: manit-gera
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ml-scaling
+  template:
+    metadata:
+      labels:
+        app: ml-scaling
+    spec:
+      containers:
+      - name: ml-service
+        image: ml-scaling:latest
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+        env:
+        - name: ENVIRONMENT
+          value: "production"
+        - name: OWNER
+          value: "Manit Gera"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8080 

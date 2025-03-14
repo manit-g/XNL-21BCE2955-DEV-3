@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ethereum-node
+  namespace: blockchain
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ethereum-testnet
+  template:
+    spec:
+      containers:
+      - name: geth
+        image: ethereum/client-go:latest
+        args:
+        - --testnet
+        - --syncmode=light 

@@ -1,0 +1,9 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: ml-system-pdb
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: ml-scaling 

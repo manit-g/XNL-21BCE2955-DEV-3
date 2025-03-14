@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: global-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: "xnl-21bce2955-dev3.cloud"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: ml-scaling-service
+            port:
+              number: 80
+---
+apiVersion: policy.k8s.io/v1
+kind: PodDisruptionBudget
+metadata:
+  name: ml-scaling-pdb
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: ml-scaling 

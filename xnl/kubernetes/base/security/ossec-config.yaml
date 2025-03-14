@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ossec-agent
+  namespace: security
+spec:
+  selector:
+    matchLabels:
+      app: ossec-agent
+  template:
+    spec:
+      containers:
+      - name: ossec-agent
+        image: atomicorp/ossec-docker:latest
+        securityContext:
+          privileged: true 

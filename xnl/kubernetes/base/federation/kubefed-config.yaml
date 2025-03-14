@@ -1,0 +1,15 @@
+apiVersion: core.kubefed.io/v1beta1
+kind: KubeFedConfig
+metadata:
+  name: kubefed
+  namespace: kube-federation-system
+spec:
+  scope: Namespaced
+  controllerDuration:
+    availableDelay: 20s
+    unavailableDelay: 60s
+  leaderElect:
+    resourceLock: configmaps
+    retryPeriod: 3s
+    leaseDuration: 15s
+    renewDeadline: 10s 
