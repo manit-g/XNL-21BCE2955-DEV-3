@@ -1,7 +1,5 @@
 # XNL-21BCE2955-DEV-3
-Here's a **README.md** file template for your project that covers the key areas and can be easily adapted to your specific use case:
 
----
 
 # AI-Powered Kubernetes Auto-Scaling & Blockchain-Based CI/CD System
 
